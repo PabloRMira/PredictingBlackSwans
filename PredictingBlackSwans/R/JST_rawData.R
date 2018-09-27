@@ -1,0 +1,44 @@
+#' Dataset for the application part: The Jordà-Schularick-Taylor
+#' Macrohistory Database
+#'
+#' An extensive data collection containing macroeconomic data for
+#' 17 advanced economies since 1870 on an annual basis. This data set
+#' captures the near-universe of advanced-country macroeconomic and
+#' asset price dynamics, covering on average over 90 percent of
+#' advanced-economy output and over 50 percent of world output.
+#' @name JST_rawData
+#' @docType data
+#' @format A data frame with 2499 rows and 29 variables:
+#' \describe{
+#'   \item{year}{Year}
+#'   \item{country}{Country}
+#'   \item{iso}{ISO 3-letter code}
+#'   \item{ifs}{IFS 3-number country-code}
+#'   \item{pop}{Population}
+#'   \item{rgdpmad}{Real GDP per capita (PPP)}
+#'   \item{rgdppc}{Real GDP per capita (index, 2005=100)}
+#'   \item{rconpc}{Real consumption per capita (index, 2006=100)}
+#'   \item{gdp}{GDP (nominal, local currency)}
+#'   \item{iy}{Investment-to-GDP ratio}
+#'   \item{cpi}{Consumer prices (index, 1990=100)}
+#'   \item{ca}{Current account (nominal, local currency)}
+#'   \item{imports}{Imports (nominal, local currency)}
+#'   \item{exports}{Exports (nominal, local currency)}
+#'   \item{narrowm}{Narrow money (nominal, local currency)}
+#'   \item{money}{Broad money (nominal, local currency)}
+#'   \item{stir}{Short-term interest rate (nominal, percent per year)}
+#'   \item{ltrate}{Long-term interest rate (nominal, percent per year)}
+#'   \item{stocks}{Stock prices (nominal index)}
+#'   \item{debtgdp}{Public debt-to-GDP ratio}
+#'   \item{revenue}{Government revenues (nominal, local currency)}
+#'   \item{expenditure}{Government expenditure (nominal, local currency)}
+#'   \item{xrusd}{USD exchange rate (local currency / USD)}
+#'   \item{crisisJST}{Systemic financial crises indicator (0 = No Crisis; 1 = Crisis)}
+#'   \item{tloans}{Total loans to non-financial private sector (nominal, local currency)}
+#'   \item{tmort}{Mortgage loans to non-financial private sector (nominal, local currency)}
+#'   \item{thh}{Total loans to households (nominal, local currency)}
+#'   \item{tbus}{Total loans to business (nominal, local currency)}
+#'   \item{hpnom}{House prices (nominal index, 1990=100)}
+#' }
+#' @source \url{http://www.macrohistory.net/data/}. Download date: 30.07.2018.
+NULL

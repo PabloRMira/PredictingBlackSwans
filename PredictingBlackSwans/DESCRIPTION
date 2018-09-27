@@ -1,0 +1,15 @@
+Package: PredictingBlackSwans
+Title: Replicate the results of my master thesis 'Predicting Black Swans and Analyzing the Symptoms of their preceeding Imbalances via the Lasso'.
+Version: 1.0
+Authors@R: person("Pablo", "Rodriguez Mira", role = c("aut", "cre"), email = "rodriguez.mira.pablo@gmail.com")
+Author: Pablo Rodriguez Mira [aut, cre]
+Maintainer: Pablo Rodriguez Mira <rodriguez.mira.pablo@gmail.com>
+Description: This package replicates the results of my master thesis.
+Depends: R (>= 3.4.3), data.table, ggplot2
+Imports: glmnet, Rcpp, pROC, gtable, randomForest, scales, grid, xtable, grDevices, stargazer
+License: MIT
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1.9000
+LinkingTo: Rcpp, RcppArmadillo
+
