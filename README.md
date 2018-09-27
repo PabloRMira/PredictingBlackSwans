@@ -1,13 +1,19 @@
 # PredictingBlackSwans
 An R-Package to reproduce the results of my master thesis.
 
-To install this package from R, you just need to run the following command in your R console
+To install this package from R, you first need to install the following package
+
+```R
+install.packages("devtools")
+```
+
+Having installed it, then you can install the package by just running
 
 ```R
 devtools::install_github("PabloRMira/PredictingBlackSwans/PredictingBlackSwans")
 ```
 
-Remember to load the package in your workspace before using it by running
+Remember to load the package in your workspace before using:
 
 ```R
 require(PredictingBlackSwans)
