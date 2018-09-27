@@ -19,10 +19,12 @@ Remember to load the package in your workspace before using:
 require(PredictingBlackSwans)
 ```
 
-To replicate our first simulation study (Prediction Contest) just run
+To replicate our first simulation study (Prediction Contest), just run
 
 ```R
 predictionSim()
+# or 
+predictingSim(path="My_Path_To_Export_Results") # if you want to specify the path yourself
 ```
 
 To replicate our second simulation study (High-Dimensional Inference Study) we recommend to run the script `inferenceSim` in script modus sequentially (in contrast to just run the entire function) to split the huge computational burden involved in it. Note: For a UNIX computer with many kernels and great computational power, the implemented parallelization may shorten the computation time by a great margin.
