@@ -9,6 +9,16 @@ predictingBS(path = getwd(), mccvnumber = 100, cvfolds = 5, seed = 813,
 }
 \arguments{
 \item{path}{Path to export the results}
+
+\item{mccvnumber}{Number of Monte Carlo Cross-Validations.}
+
+\item{cvfolds}{Number of folds for the Lasso.}
+
+\item{seed}{Seed for reproducibility.}
+
+\item{parallel}{Should parallel computing be used? (Only for UNIX computers)}
+
+\item{ncores}{Number of cores for parallel computing.}
 }
 \description{
 Main function to reproduce the results of our paper regarding the

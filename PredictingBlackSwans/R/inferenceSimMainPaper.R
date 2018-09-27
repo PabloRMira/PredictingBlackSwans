@@ -241,7 +241,7 @@ inferenceSimMainPaper <- function(path        = getwd(),
 
     # Get standard errors
     stdErrors <- dLasso$se
-    seArray[posInfeas, i, 3] <- stdErrors
+    seArray[, i, 3] <- stdErrors
 
     # Confidence intervals for all variables
     confIntLow <- dCoef - qnorm(1 - (nomSize / 2)) * stdErrors
@@ -287,7 +287,7 @@ inferenceSimMainPaper <- function(path        = getwd(),
 
     # Get standard errors
     stdErrors <- dLasso$se
-    seArray[posInfeas, i, 4] <- stdErrors
+    seArray[, i, 4] <- stdErrors
 
     # Confidence intervals for all variables
     confIntLow <- dCoef - qnorm(1 - (nomSize / 2)) * stdErrors
@@ -333,7 +333,7 @@ inferenceSimMainPaper <- function(path        = getwd(),
 
     # Get standard errors
     stdErrors <- dLasso$se
-    seArray[posInfeas, i, 5] <- stdErrors
+    seArray[, i, 5] <- stdErrors
 
     # Confidence intervals for all variables
     confIntLow <- dCoef - qnorm(1 - (nomSize / 2)) * stdErrors

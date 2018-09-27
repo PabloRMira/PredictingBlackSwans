@@ -1,6 +1,6 @@
 #' Compute the residuals of the square-root Lasso regressions
 #'
-#' @param i Column index for the response.
+#' @param j Column index for the response.
 #' @param x Matrix of predictors.
 #' @param lambda Either 'BCW' for the simulations method
 #' proposed by Belloni, Chernozhukov and Wang (2011) or 'VdG' for

@@ -1,10 +1,10 @@
 #' Plot Linear Effects driving Crisis Probabilities
 #'
 #' Plot of the linear effects driving the crisis probabilities.
-#' @param crisDT A data table with the countries, years
-#' and predicted probability.
+#' @param driverTable A data.table with the countries, years
+#' and linear effects.
 #' @param fullDT The full data set.
-#' @param countryName Name of the country to plot. It can also be "All".
+#' @param countryName Name of the country to plot.
 #' @return A ggplot.
 #' @export
 #' @keywords PredictingBlackSwans

@@ -9,9 +9,11 @@ cv_nodewise_totalerr(c, dataselects, x, lambdas, K)
 \arguments{
 \item{c}{Column of the response in the nodewise regression.}
 
+\item{dataselects}{Fold index for the cross-validation.}
+
 \item{x}{Matrix of predictors.}
 
-\item{lambdas}{Vector / Sequence of regularization parameters.}
+\item{lambdas}{Sequence of regularization parameters.}
 
 \item{K}{Number of folds for the cross-validation.}
 }

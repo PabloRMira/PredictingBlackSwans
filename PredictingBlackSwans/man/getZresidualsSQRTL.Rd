@@ -7,13 +7,13 @@
 getZresidualsSQRTL(j, x, lambda)
 }
 \arguments{
+\item{j}{Column index for the response.}
+
 \item{x}{Matrix of predictors.}
 
 \item{lambda}{Either 'BCW' for the simulations method
 proposed by Belloni, Chernozhukov and Wang (2011) or 'VdG' for
 the proposed method in van de Geer (2014).}
-
-\item{i}{Column index for the response.}
 }
 \value{
 Vector of residuals.

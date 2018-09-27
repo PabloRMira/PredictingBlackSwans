@@ -3,6 +3,11 @@
 #' Compute the Desparsified Lasso Estimator for Logistic Regression
 #' @param x Matrix of predictors.
 #' @param y Response variable.
+#' @param nodewise Either 'cv' for the nodewise regression using the Lasso with
+#' cross-validation or 'sqrtLasso' for the square-root Lasso.
+#' @param lambda Tuning parameter for the square-root Lasso in the nodewise regressions.
+#' Either 'BCW' for the proposal by Belloni, Chernozhukov and Wang (2011) or 'VdG' for
+#' the proposal by van de Geer (2014).
 #' @param cvfolds Number of folds for the cross-validation for both the initial
 #' estimator and for the CV-nodewise-Lasso (if this is chosen).
 #' @param parallel Should parallel computing be used when possible?

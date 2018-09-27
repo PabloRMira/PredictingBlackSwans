@@ -3,6 +3,11 @@
 #' Main function to reproduce the results of our paper regarding the
 #' prediction analysis.
 #' @param path Path to export the results
+#' @param mccvnumber Number of Monte Carlo Cross-Validations.
+#' @param cvfolds Number of folds for the Lasso.
+#' @param seed Seed for reproducibility.
+#' @param parallel Should parallel computing be used? (Only for UNIX computers)
+#' @param ncores Number of cores for parallel computing.
 #' @details A new directory "Prediction_Analysis" will be created
 #' where the results will be placed in.
 #' @export
@@ -70,11 +75,10 @@ predictingBS <- function(path=getwd(),
                    expression(paste("r \u2a09 \u0394 log(", C[B], " / GDP)")))
   p <- outputList$pVarImp +
     scale_x_discrete(labels=myvarlabels)
-  print(p)
   ggsave("Variable_Importance.pdf", plot=p, units="cm", height=8, width=15, device=grDevices::cairo_pdf)
 
   myvarlabels2 <- c("L2. \u0394 log(SPI) \u2a09 \u0394 log(C / GDP)",
-                    expression(paste("L1. \U0394 log(", C[HH], ")", "%*%", "\u0394 log(C / GDP)")),
+                    expression(paste("L1. \U0394 log(", C[HH], ") \u2a09 \u0394 log(C / GDP)")),
                     expression(paste("L1. \u0394 log(", C[M], ") \u2a09 \u0394 log(", C[B], " / GDP)")),
                     expression(paste("L1. r \u2a09 \u0394 log(", C[B], " / GDP)")),
                     expression(paste("r \u2a09 \u0394 log(", C[B], " / GDP)")),
@@ -83,6 +87,7 @@ predictingBS <- function(path=getwd(),
 
   # Example: Crisis probabilities and linear efffects
   p1 <- outputList$pCrisProbs$Spain
+  p2 <- outputList$pLinEffects$Spain
   p2 <- outputList$pLinEffects$Spain +
     scale_fill_discrete(breaks=as.character(unique(p2$data$variable)),
                         labels=myvarlabels2)

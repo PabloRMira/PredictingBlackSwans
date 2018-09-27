@@ -222,7 +222,6 @@ testAnalysis <- function(mccvnumber=100,
   train[, crisisJST:=as.factor(crisisJST)] # Convert the response to factor
 
   # Random forest
-  print("Random Forest OOB Analysis starts")
   strataSampling <- as.vector(ceiling(table(train$crisisJST) * 0.632)) # Stratified Sampling
   rfMod <- randomForest::randomForest(x=as.matrix(train[, varSel, with=F]),
                                       y=train$crisisJST,

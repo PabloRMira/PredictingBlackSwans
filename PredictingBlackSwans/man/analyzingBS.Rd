@@ -9,6 +9,15 @@ analyzingBS(path = getwd(), cvfolds = 5, seed = 813, parallel = T,
 }
 \arguments{
 \item{path}{Path to export the results}
+
+\item{cvfolds}{Number of folds for the cross-validation in the desparsified Lasso
+for the initial estimator (Lasso).}
+
+\item{seed}{Seed for reproducibility.}
+
+\item{parallel}{Should parallel computing be used? (Only for UNIX computers)}
+
+\item{ncores}{Number of cores for parallel-computing.}
 }
 \description{
 Main function to reproduce the results of our paper regarding the

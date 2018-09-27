@@ -3,15 +3,14 @@
 #' Replicate the results of our simulations part regarding prediction accuracy.
 #' @param path Path to export the results.
 #' @param n Number of observations.
-#' @param p Number of covariates.
+#' @param pList Vector of number of covariates for each scenario.
+#' @param coefConfig Either 'big' or 'small' or c('big', 'small') for
+#' the scenarios corresponding to big or small coefficients.
+#' @param rho Correlation strength of the Toeplitz covariance matrix.
 #' @param nSim Number of simulations.
 #' @param cvfolds Number of folds for the cross-validation.
-#' @param nVarInf Number of variables for the infeasible logistic regression
-#' estimator which knows a low-dimensional subset including the variables
-#' with non-zero coefficient.
 #' @param parallel Should parallel computing be used when possible?
 #' @param ncores Number of cores for parallel computing.
-#' @param tau Expected proportion of 1's in the data.
 #' @param seed Seed for replication purposes.
 #' @export
 #' @keywords PredictingBlackSwans
@@ -22,12 +21,14 @@ predictionSim <- function(path         = getwd(),
                           rho          = 0.9,
                           nSim         = 100,
                           cvfolds      = 5,
-                          nVarInf      = 20,
                           parallel     = TRUE,
                           ncores       = 2L,
-                          tau          = 0.5,
                           seed         = 182
 ) {
+
+  # Default arguments
+  propY <- 0.5 # Proportion of 1's
+  nVarInf <- 20 # Number of variables for the infeasible LR model
 
   # Message: Begin of the simulations
   startSim <- Sys.time()
@@ -100,12 +101,12 @@ predictionSim <- function(path         = getwd(),
       posInfeas <- c(posNz, seq(2, 9), 11)
 
       # Choose the intercept such that the proportion
-      # of 1's approximates tau
+      # of 1's approximates propY
       # Note: Numerical solution
       target <- function(alpha) {
         linFun <- alpha + X[, 1:length(nzCoef)] %*% nzCoef
         trueProbs <- 1 / (1 + exp(-linFun))
-        targetValue <- (mean(trueProbs) - tau)^2
+        targetValue <- (mean(trueProbs) - propY)^2
         return(targetValue)
       }
       alpha <- nleqslv::nleqslv(x=0, fn=target)$x
@@ -269,37 +270,35 @@ predictionSim <- function(path         = getwd(),
       predictionList[[listName]] <- list(resultsTable = resultsTable,
                                      probsArray   = probsArray,
                                      p            = p,
-                                     tau          = tau,
+                                     propY          = propY,
                                      rho      = rho,
                                      plot         = pt)
     }
   }
+  # End of the simulations
+  endSim <- Sys.time()
+  # Time information
+  print(paste("Begin of the simulations:", startSim))
+  print(paste("End of the simulations:", endSim))
+  # Time difference
+  print(endSim - startSim)
 
-# Return back to the original working directory
-setwd(curDir)
-
-# End of the simulations
-endSim <- Sys.time()
-# Time information
-print(paste("Begin of the simulations:", startSim))
-print(paste("End of the simulations:", endSim))
-# Time difference
-print(endSim - startSim)
-
-# Save data
-timeInfo <- data.frame(begin      = startSim,
-                       end        = endSim,
-                       timeNeeded = endSim - startSim)
-parInfo <- data.frame(path        = path,
-                      n           = n,
-                      pList       = pList,
-                      nSim        = nSim,
-                      tau         = tau,
-                      rho = rho,
-                      nVarInf     = nVarInf,
-                      seed        = seed)
-predSimulationsResults <- list(predictionList = predictionList,
-                               parInfo        = parInfo,
-                               timeInfo       = timeInfo)
-save(predSimulationsResults, file="predSimulationsResults.RData")
+  # Save data
+  timeInfo <- data.frame(begin      = startSim,
+                         end        = endSim,
+                         timeNeeded = endSim - startSim)
+  parInfo <- data.frame(path        = path,
+                        n           = n,
+                        pList       = pList,
+                        nSim        = nSim,
+                        propY         = propY,
+                        rho = rho,
+                        nVarInf     = nVarInf,
+                        seed        = seed)
+  predSimulationsResults <- list(predictionList = predictionList,
+                                 parInfo        = parInfo,
+                                 timeInfo       = timeInfo)
+  save(predSimulationsResults, file="predSimulationsResults.RData")
+  # Return back to the original working directory
+  setwd(curDir)
 }

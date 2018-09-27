@@ -3,6 +3,11 @@
 #' Main function to reproduce the results of our paper regarding the
 #' inference analysis.
 #' @param path Path to export the results
+#' @param cvfolds Number of folds for the cross-validation in the desparsified Lasso
+#' for the initial estimator (Lasso).
+#' @param seed Seed for reproducibility.
+#' @param parallel Should parallel computing be used? (Only for UNIX computers)
+#' @param ncores Number of cores for parallel-computing.
 #' @details A new directory "Inference_Analysis" will be created
 #' where the results will be placed in.
 #' @export

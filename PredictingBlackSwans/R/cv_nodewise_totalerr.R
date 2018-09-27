@@ -1,9 +1,10 @@
 #' Compute the total cross-validated error for the nodewise regression
 #'
 #' @param c Column of the response in the nodewise regression.
-#' @param K Number of folds for the cross-validation.
+#' @param dataselects Fold index for the cross-validation.
 #' @param x Matrix of predictors.
-#' @param lambdas Vector / Sequence of regularization parameters.
+#' @param lambdas Sequence of regularization parameters.
+#' @param K Number of folds for the cross-validation.
 #' @return A (Number of lambdas x Number of folds) matrix of
 #' cross-validated errors (error on the discarded fold).
 #' @export

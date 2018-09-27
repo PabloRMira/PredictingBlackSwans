@@ -7,12 +7,12 @@
 plotLinEffects(driverTable, fullDT, countryName)
 }
 \arguments{
+\item{driverTable}{A data.table with the countries, years
+and linear effects.}
+
 \item{fullDT}{The full data set.}
 
-\item{countryName}{Name of the country to plot. It can also be "All".}
-
-\item{crisDT}{A data table with the countries, years
-and predicted probability.}
+\item{countryName}{Name of the country to plot.}
 }
 \value{
 A ggplot.
