@@ -1,4 +1,6 @@
 # PredictingBlackSwans
+### *IMPORTANT NOTE*: Due to the on a UNIX system built parallel computing (specially the use of the doMC-package for parallel computing), this package only works for UNIX systems.
+
 An R-Package to reproduce the results of my master thesis.
 
 To install this package from R, you first need to install the following package
